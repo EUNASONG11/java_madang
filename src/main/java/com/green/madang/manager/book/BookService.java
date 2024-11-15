@@ -23,7 +23,7 @@ public class BookService {
 
         p.setStartIdx(sIdx);
 
-        // p.setSIdx( (p.getPage() - 1) * p.getSize() );
+        // p.setStartIdx( (p.getPage() - 1) * p.getSize() );
         return mapper.selBookList(p);
 
     }
