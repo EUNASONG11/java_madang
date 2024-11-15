@@ -3,7 +3,7 @@ spring:
     name: madang
 
   datasource:
-    url: jdbc:mariadb://localhost/madangdb
+    url: jdbc:mariadb://localhost/madang_spring
     username: root
     password: green502
 
