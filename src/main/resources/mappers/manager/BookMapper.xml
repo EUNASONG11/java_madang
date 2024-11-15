@@ -9,4 +9,19 @@
              , publisher = #{publisher}
              , price = #{price}
     </insert>
+
+    <select id="selBookList">
+        SELECT bookid AS bookId
+             , bookname as bookName
+             , publisher
+             , price
+          FROM book
+         ORDER BY bookname, bookid
+         LIMIT #{startIdx}, #{size}
+    </select>
+
+    <delete id="delBook">
+        DELETE FROM book
+        WHERE bookName =#{bookName}
+    </delete>
 </mapper>
