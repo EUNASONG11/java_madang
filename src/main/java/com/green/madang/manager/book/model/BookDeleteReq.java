@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BookDelReq {
-    private String bookName;
+public class BookDeleteReq {
+    private int bookId;
 }

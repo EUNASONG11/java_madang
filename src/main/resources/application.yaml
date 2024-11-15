@@ -9,3 +9,11 @@ spring:
 
 mybatis:
   mapper-locations: mappers/**/*.xml
+
+springdoc:
+  api-docs:
+    version: openapi_3_1
+  swagger-ui:
+    default-model-expand-depth: -1
+    default-models-expand-depth: -1
+    path: /swagger

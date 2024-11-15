@@ -12,16 +12,35 @@
 
     <select id="selBookList">
         SELECT bookid AS bookId
-             , bookname as bookName
+             , bookname AS bookName
              , publisher
              , price
           FROM book
+        <if test=" searchText != null and searchText != '' ">
+            WHERE bookname LIKE '%${searchText}%'
+        </if>
          ORDER BY bookname, bookid
          LIMIT #{startIdx}, #{size}
     </select>
 
+    <update id="updBook">
+        UPDATE book
+        <set>
+            <if test=" bookName != null and bookName != '' ">
+                bookName = #{bookName}
+            </if>
+            <if test=" publisher != null and publisher != '' ">
+                , publisher = #{publisher}
+            </if>
+            <if test=" price != null and price >= 0 ">
+                , price = #{price}
+            </if>
+        </set>
+        WHERE bookid = #{bookId}
+    </update>
+
     <delete id="delBook">
         DELETE FROM book
-        WHERE bookName =#{bookName}
+        WHERE bookid = #{bookId}
     </delete>
 </mapper>

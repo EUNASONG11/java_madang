@@ -1,9 +1,6 @@
 package com.green.madang.manager.book;
 
-import com.green.madang.manager.book.model.BookDelReq;
-import com.green.madang.manager.book.model.BookGetReq;
-import com.green.madang.manager.book.model.BookGetRes;
-import com.green.madang.manager.book.model.BookPostReq;
+import com.green.madang.manager.book.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +15,6 @@ public class BookService {
         return mapper.insBook(p);
     }
 
-    public int delBook(BookDelReq p) {
-        return mapper.delBook(p);
-    }
-
     public List<BookGetRes> getBookList (BookGetReq p) {
         // sIdx값 세팅
         int page = p.getPage();
@@ -32,5 +25,13 @@ public class BookService {
 
         // p.setSIdx( (p.getPage() - 1) * p.getSize() );
         return mapper.selBookList(p);
+
+    }
+    public int updBook(BookUpdateReq p) {
+        return mapper.updBook(p);
+    }
+
+    public int delBook(BookDeleteReq p) {
+        return mapper.delBook(p);
     }
 }
