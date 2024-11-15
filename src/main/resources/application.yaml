@@ -1,0 +1,11 @@
+spring:
+  appication:
+    name: madang
+
+  datasource:
+    url: jdbc:mariadb://localhost/madangdb
+    username: root
+    password: green502
+
+mybatis:
+  mapper-locations: mappers/**/*.xml
