@@ -25,10 +25,28 @@ public class CustomerController {
         return new MyResponse<>("고객 등록 완료", service.insCust(p));
     }
 
+
     @GetMapping
     @Operation(summary = "고객 리스트", description = "고객 정보 리스트 보기 API")
     public MyResponse<List<CustomerGetRes>> selCust(@ParameterObject @ModelAttribute CustomerGetReq p) {
         return new MyResponse<>(p.getPage() + "페이지 데이터", service.selCust(p));
+    }
+
+    //RequestParam
+    @GetMapping("/param")
+    @Operation (summary = "고객 리스트2", description = "고객 정보 리스트2")
+    public MyResponse<List<CustomerGetRes>> selCust(@RequestParam int page
+                                                  , @RequestParam int size
+                                                  , @RequestParam (name="search_type", required = false) String searchType
+                                                  , @RequestParam(name="search_text", required = false) String searchText) {
+        CustomerGetReq req = new CustomerGetReq();
+        req.setPage(page);
+        req.setSize(size);
+        req.setSearchType(searchType);
+        req.setSearchText(searchText);
+
+        log.info("get-req: {}", req);
+        return new MyResponse<>(req.getPage() + "페이지 데이터", service.selCust(req));
     }
 
     @PutMapping
