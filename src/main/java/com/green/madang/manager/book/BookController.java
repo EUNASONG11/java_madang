@@ -48,7 +48,7 @@ public class BookController {
 
     @DeleteMapping
     @Operation(summary = "도서 삭제")
-    public MyResponse<Integer> delBook (@ModelAttribute BookDeleteReq p) {
+    public MyResponse<Integer> delBook (@ParameterObject @ModelAttribute BookDeleteReq p) {
         return new MyResponse<>("책 삭제 완료", service.delBook(p));
     }
 }

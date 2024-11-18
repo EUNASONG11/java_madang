@@ -24,4 +24,12 @@ public class CustomerService {
 
         return mapper.selCustomerList(p);
     }
+
+    public int updCustomer(CustomerPutReq p) {
+        return mapper.updCustomer(p);
+    }
+
+    public int delCustomer(CustomerDeleteReq p) {
+        return mapper.delCustomer(p);
+    }
 }

@@ -25,7 +25,7 @@
          LIMIT #{startIdx}, #{size}
     </select>
 
-    <update id="updCustomerList">
+    <update id="updCustomer">
         UPDATE customer
         <set>
             <if test=" name != null and name != '' ">
@@ -40,4 +40,9 @@
         </set>
         WHERE custid = #{custId}
     </update>
+
+    <delete id="delCustomer">
+        DELETE FROM customer
+         WHERE custid = #{custId}
+    </delete>
 </mapper>

@@ -1,9 +1,7 @@
 package com.green.madang.manager.customer;
 
 import com.green.madang.common.model.MyResponse;
-import com.green.madang.manager.customer.model.CustomerGetReq;
-import com.green.madang.manager.customer.model.CustomerGetRes;
-import com.green.madang.manager.customer.model.CustomerPostReq;
+import com.green.madang.manager.customer.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -31,5 +29,17 @@ public class CustomerController {
     @Operation(summary = "고객 리스트", description = "고객 정보 리스트 보기 API")
     public MyResponse<List<CustomerGetRes>> selCust(@ParameterObject @ModelAttribute CustomerGetReq p) {
         return new MyResponse<>(p.getPage() + "페이지 데이터", service.selCust(p));
+    }
+
+    @PutMapping
+    @Operation(summary = "고객 수정", description = "고객 정보 수정 API")
+    public MyResponse<Integer> upCust(@RequestBody CustomerPutReq p) {
+        return new MyResponse<>(p.getCustId() + "번째 고객 수정 완료", service.updCustomer(p));
+    }
+
+    @DeleteMapping
+    @Operation(summary = "고객 정보 삭제", description = "고객 정보 삭제 API")
+    public MyResponse<Integer> delCust(@ParameterObject @ModelAttribute CustomerDeleteReq p) {
+        return new MyResponse<>(p.getCustId() + "번째 고객 정보 삭제 완료", service.delCustomer(p));
     }
 }

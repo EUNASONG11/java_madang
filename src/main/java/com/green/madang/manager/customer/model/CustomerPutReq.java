@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CustomerUpdateReq {
+public class CustomerPutReq {
     private int custId;
     private String name;
     private String address;
