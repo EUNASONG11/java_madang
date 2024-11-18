@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class CustomerController {
 
     @GetMapping
     @Operation(summary = "고객 리스트", description = "고객 정보 리스트 보기 API")
-    public MyResponse<List<CustomerGetRes>> selCust(CustomerGetReq p) {
-        return new MyResponse<>("데이터", service.selCust(p));
+    public MyResponse<List<CustomerGetRes>> selCust(@ParameterObject @ModelAttribute CustomerGetReq p) {
+        return new MyResponse<>(p.getPage() + "페이지 데이터", service.selCust(p));
     }
 }

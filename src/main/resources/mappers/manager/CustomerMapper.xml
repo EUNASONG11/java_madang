@@ -10,7 +10,7 @@
              , phone = #{phone}
     </insert>
 
-    <select id="selCustomer">
+    <select id="selCustomerList">
         SELECT custid AS custId, name, address, phone
           FROM customer
         <choose>
