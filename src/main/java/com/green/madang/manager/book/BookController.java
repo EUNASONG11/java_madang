@@ -19,7 +19,7 @@ public class BookController {
     private final BookService service;
 
     @PostMapping
-    @Operation(summary = "도서 입고", description = "도서 입고 처리 API")
+    @Operation(summary = "도서 입고", description = "도서 입고 처리 <br> API")
     public MyResponse<Integer> postBook(@RequestBody BookPostReq p) {
         log.info("info"); //정보
         log.info("info ---- {} ", p);

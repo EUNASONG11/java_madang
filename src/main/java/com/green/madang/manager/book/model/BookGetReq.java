@@ -1,12 +1,14 @@
 package com.green.madang.manager.book.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class BookGetReq {
+    @Parameter(name = "페이지 값", description = "선택된 페이지 값", example = "1", required = true)
     private int page; // 실제 받는 값
     private int size; // 실제 받는 값
     private String searchText;

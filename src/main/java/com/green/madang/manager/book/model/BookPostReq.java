@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class BookPostReq {
-    @Schema(title = "도서 이름")
+    @Schema(title = "도서 이름", requiredMode = Schema.RequiredMode.REQUIRED)
     private String bookName;
     @Schema(title = "출판사 이름")
     private String publisher;
