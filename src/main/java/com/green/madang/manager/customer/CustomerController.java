@@ -1,6 +1,7 @@
 package com.green.madang.manager.customer;
 
 import com.green.madang.common.model.MyResponse;
+import com.green.madang.manager.customer.model.CustomerGetReq;
 import com.green.madang.manager.customer.model.CustomerGetRes;
 import com.green.madang.manager.customer.model.CustomerPostReq;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,7 +28,7 @@ public class CustomerController {
 
     @GetMapping
     @Operation(summary = "고객 리스트", description = "고객 정보 리스트 보기 API")
-    public MyResponse<List<CustomerGetRes>> selCust() {
-        return new MyResponse<>("데이터", service.selCust());
+    public MyResponse<List<CustomerGetRes>> selCust(CustomerGetReq p) {
+        return new MyResponse<>("데이터", service.selCust(p));
     }
 }

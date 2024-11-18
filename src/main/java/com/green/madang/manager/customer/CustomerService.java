@@ -20,6 +20,8 @@ public class CustomerService {
         int size = p.getSize();
         int startIdx = (page - 1) * size;
 
-        return mapper.updCustomerList();
+        p.setStartIdx(startIdx);
+
+        return mapper.selCustomerList(p);
     }
 }

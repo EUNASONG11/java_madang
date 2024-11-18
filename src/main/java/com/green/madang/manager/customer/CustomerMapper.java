@@ -8,5 +8,5 @@ import java.util.List;
 @Mapper
 public interface CustomerMapper {
     int insCustomer(CustomerPostReq p);
-    List<CustomerGetRes> updCustomerList();
+    List<CustomerGetRes> selCustomerList(CustomerGetReq p);
 }
