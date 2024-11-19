@@ -28,6 +28,7 @@ public class CustomerController {
 
     @GetMapping
     @Operation(summary = "고객 리스트", description = "고객 정보 리스트 보기 API")
+    //@ParameterObject - Swagger용 애노테이션, RequestParam으로 설정했을 때 나오는 FORM처럼 되게 한다.
     public MyResponse<List<CustomerGetRes>> selCust(@ParameterObject @ModelAttribute CustomerGetReq p) {
         return new MyResponse<>(p.getPage() + "페이지 데이터", service.selCust(p));
     }
